@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html'%}
+{% block content %}
+<div class="row">
+    <div class="col-sm-4">
+    <h1 class="text-center alert alert-info">Add New Student</h1>
+    <form action="" method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-success" value="Add">
+    </form>
+  </div>
+    <div class="col-sm-7 offset-1">
+        <h1 class="text-center alert alert-info">All Student List</h1>
+        {% if show %}
+          <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% endif %}
+          {% for i in show %}
+            <tr>
+              <td>{{i.id}}</td>
+              <td>{{i.name}}</td>
+              <td>{{i.email}}</td>
+              <td>{{i.password}}</td>
+             <td> <a href="{% url 'updateview' i.pk %}" class="btn btn-warning" class="btn btn-sm">edit</a></td>
+             <td><a href="{% url 'deletedata' i.pk %}" class="btn btn-danger" class="btn btn-sm">delete</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock content %}

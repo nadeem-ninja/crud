@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}">
+</head>
+<body>
+<br>
+<br>
+
+<div class="row">
+<div class="col-sm-9 offset-1">
+<div class="text-center alert alert-danger"> SoftPie</div>
+
+{% block content %}
+
+{% endblock %}
+    </div>
+    </div>
+<script src="{% static 'myapp/js/jquery.js' %}" ></script>
+<script src="{% static 'myapp/js/popper.js' %}" ></script>
+<script src="{% static 'myapp/js/bootstrap.js' %}" ></script>
+</body>
+</html>
