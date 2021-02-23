@@ -1,0 +1,11 @@
+{% extends 'medical/store.html' %}
+
+{% block content %}
+<h1>Add Medicine </h1>
+<div>
+<form action="" method="post">{% csrf_token %}
+        {{form}}
+ <input class="btn btn-info" type="submit" value="submit"><br><br>
+</form>
+</div>
+{% endblock %}

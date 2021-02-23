@@ -1,0 +1,30 @@
+{% extends 'medical/base.html' %}
+
+{% block content %}
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Qty(box)</th>
+      <th scope="col">strip</th>
+      <th scope="col">Expired</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+ {% for fm in list %}
+  <tbody>
+    <tr>
+      <td>{{fm.id}}</td>
+      <td>{{fm.name}}</td>
+      <td>{{fm.box_qty}}</td>
+      <td>{{fm.qty}}</td>
+      <td>{{fm.expired_date}}</td>
+      <td><a href="{% url 'update_view' fm.pk %}" class="btn btn-warning">Update</a></td>
+      <td><a href="{% url 'delete_medicine' fm.pk %}" class="btn btn-danger">delete</a></td>
+    </tr>
+  </tbody>
+      {% endfor %}
+      </table>
+{% endblock %}
